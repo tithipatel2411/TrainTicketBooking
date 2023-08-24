@@ -1,0 +1,27 @@
+create database TrainBooking
+use TrainBooking
+
+create table UserDetail(UserId int identity(1,1),
+UserName varchar(20),Gender varchar(10),Wallet int)
+insert into UserDetail values('Darshan','Male',1200)
+
+create table Train(TrainId int identity(101,1),
+TrainNo int,TrainName varchar(20),SourceId int,DestinationId int,NoOfSeat int)
+insert into Train values(1004,'Tejas',504,505,250)
+
+create table Booking(BookingId int identity(1,1),
+TrainId int,UserMapId int,Charge int)
+insert into Booking values(101,204,50)
+
+create table LocationMap(LocationId int ,LocationName varchar(30))
+insert into LocationMap values(505,'Surat')
+
+
+create table UserMapping(UserMapId int identity(201,1),UserId int,PickUpId int,DropId int)
+insert into UserMapping values(4,504,505)
+
+select * from Train
+select * from UserDetail
+select * from Booking
+select * from LocationMap
+select * from UserMapping
