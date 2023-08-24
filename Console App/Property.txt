@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PropertyExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student student = new Student()
+            {
+                studentName = "Tithi",
+                Address = 12,
+                Marks = 99.9F,
+                phoneNumber = 1232212
+
+            };
+            Console.WriteLine($"student imformation: {student.Marks} , {student.studentName}");
+            //Console.WriteLine(student.Marks);
+            //Console.WriteLine(student.studentName);
+//            Console.ReadKey();
+        }
+
+        public class Student
+        {
+            public int studentId { get; set; }
+
+            public string studentName { get; set; }
+
+            public long Address { get; set; }
+            public double phoneNumber { get; set; }
+
+            public float Marks { get; set; }
+
+            private string Password { get; set; }
+        }
+    }
+}

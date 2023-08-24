@@ -1,0 +1,96 @@
+using System;
+
+namespace OopsConcept
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Birds objBirds = new Birds("Parrot");
+            objBirds.Dog();
+            objBirds.Samsung();
+            objBirds.Realme();
+            objBirds.Oppo();
+            objBirds.Cat();
+            Console.ReadKey();
+        }
+    }
+
+    //interface use multilevel inheritance
+    // interface always a bydefault public
+    // does not create method body 
+    // if it is inherited create all method of interface in inheritaed class
+    interface phoneList
+    {
+        void Samsung();
+
+        void Realme();
+
+        void Oppo();
+
+    }
+
+
+    // abstract class can not use multiple inheritance
+    //always use abstract method without any body 
+    // abstract class can not create object
+    //abstract class use virtual method and virtual method only use in abstract classs and it always inherite with override method
+    // in abstract class in void method always inherite with new keyword
+    public abstract class Animal
+    {
+        public abstract void Dog(); //does not create object
+
+        public virtual void Lion() // always use onlu abstract class
+        {
+            Console.WriteLine("here dog");
+        }
+
+        public void Cat() 
+        {
+            Console.WriteLine("Here is the Cate.");
+        }
+    }
+
+    public class Birds : Animal
+    {
+        public override void Dog()
+        {
+            /*throw new NotImplementedException();*/
+            Console.WriteLine("Dogs is Here , My name is rubby"); //abstract method use always using override keyword
+    }
+
+        public override void Lion() // vitual method use always using override keyword becuse it will never use parent method
+        {
+            /*base.Lion();*/
+            Console.WriteLine("Lion is Here , I am a King.");
+        }
+
+        public new void Cat() // void method use always using new keyword becuse it hides parent method
+        {
+            Console.WriteLine("Here is the Cat. hello all animals");
+        }
+
+        public Birds(string name)
+        {
+            Console.WriteLine($"Name is : {name}");
+        }
+
+        public void Samsung()
+        {
+            Console.WriteLine("Samsung Phone");
+        }
+
+        public void Realme()
+        {
+            Console.WriteLine("realme Phone");
+        }
+
+        public void Oppo()
+        {
+            Console.WriteLine("oppo abs Phone");
+        }
+
+
+    }
+
+}

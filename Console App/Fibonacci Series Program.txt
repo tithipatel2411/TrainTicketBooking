@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Fibbonacci
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 0 , n1 = 1 , i , number , n3;
+
+            Console.WriteLine("Enter number:");
+            number = int.Parse(Console.ReadLine());
+            Console.Write(n +" " + n1 +" ");
+            for(i=2; i <number; i++)
+            {
+                n3 = n + n1;
+                Console.Write(n3 + " ");
+                n = n1;
+                n1 = n3;
+            }
+        }
+    }
+}

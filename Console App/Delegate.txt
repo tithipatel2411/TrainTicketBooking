@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Delegate
+{
+    class Program
+    {
+        /*
+         * delegate is a set of method
+        */
+        static void Main(string[] args)
+        {
+
+            Calculator calculator = new Calculator(Addition); 
+            calculator += Subtraction;// add multiple method in one object
+            calculator.Invoke(120,10); // invoke method is a default method of delegate
+            Console.ReadKey();
+
+        }
+
+       static void Addition(int a , int b) // always use static method in delegate
+       {
+            Console.WriteLine($"Addition : {a + b}");
+       }
+
+        static void Subtraction(int a , int b)
+        {
+            Console.WriteLine($"Subtraction : {a - b}" );
+        }
+        public delegate void Calculator(int a , int b);
+    }
+
+   
+}

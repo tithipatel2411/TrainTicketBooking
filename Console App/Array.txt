@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ArrayExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Sort a integer number
+            /* int[] cars = { 5,7,3,1,4};
+             Array.Sort(cars);
+
+             foreach (int i in cars)
+             {
+                 Console.WriteLine(i);
+             }*/
+
+            //concate array 
+           /* string[] str = { "tithi", "patel" };
+            string[] str1 = { "Fizu" };
+            string[] str3 = str.Concat(str1).ToArray();
+            Console.WriteLine(string.Join(", ", str3));*/
+
+            // find even number using array
+            /* int i, count = 0;
+             int[] str = new int[10];
+             Console.WriteLine("Enter the 5 number");
+             for(i=0; i<5; i++)
+             {
+                 str[i] = int.Parse(Console.ReadLine());
+                 if(str[i] % 2 == 0)
+                 {
+                     count++;
+                 }
+             }
+             Console.WriteLine("Total number is :" + count);
+            */
+
+
+
+            //hghest value in array
+            int i, count = 0 , high;
+            int[] array = new int[20];
+
+            Console.WriteLine("enter 5 number");
+            for(i=1; i < 5; i++)
+            {
+                array[i] = int.Parse(Console.ReadLine());
+
+            }
+
+            high = array[0];
+            for(i=0; i < 5; i++)
+            {
+                if(array[i] > high)
+                {
+                    high = array[i];
+                }
+            }
+            Console.WriteLine("Highest "+high);
+
+            Console.ReadLine();
+          
+        }
+    } 
+}

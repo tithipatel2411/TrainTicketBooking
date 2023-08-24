@@ -1,0 +1,124 @@
+using System;
+using System.Collections.Generic;
+
+namespace List
+{
+    class Program
+    {
+        private static bool isEven(int i)
+        {
+            return ((i % 2) == 0);
+        }
+        static void Main(string[] args)
+        {
+
+            //List        -- done practicle
+            /*
+              -- It comes under System.Collections.Generic namespace.
+              -- auto resizing
+              -- list class can be used to create a collection of any type (datatype) 
+              -- only use only one datatype in one list
+              -- list always start with index 0
+            */
+
+
+        // using diffrent different datatype in one list.
+        //create one class for employee in same file and use this 
+        Employee objEmploye = new Employee() // create employee class object
+        {
+            name = "tithi", // access employee class property
+            age = 22,
+            designation = "Associates Software Engineering",
+        };
+
+        Employee objEmploye1 = new Employee()
+        {
+            name = "Fizu",
+            age = 25,
+            designation = "Senior Software Engineering" ,
+        };
+
+        List<Employee> employeeList = new List<Employee>(); // create list using employee object
+        employeeList.Add(objEmploye);
+        employeeList.Add(objEmploye1);
+            
+        foreach(Employee emp in employeeList) 
+        {
+            Console.WriteLine($"Name : {emp.name} , Age : {emp.age} , Designation : {emp.designation} "); 
+        }
+
+        List<int> objInt = new List<int>();
+            objInt.Add(11);
+            objInt.Add(22);
+            objInt.Add(4);
+            objInt.Add(44);
+
+            List<string> objhString = new List<string>();
+            objhString.Add("Tithi");
+            objhString.Add("Patel");
+            objhString.Add("Dhriti");
+            objhString.Add("Sreyanshi");
+
+            foreach (int item in objInt)
+            {
+                Console.WriteLine(item); // o/p :- 11  22 33 44 
+            }
+
+            Console.WriteLine(objhString.Contains("Tithi"));  // contain or not true/false 
+
+            Console.WriteLine(objInt.Equals(objhString));  // eqals to or not true/false
+
+            objInt.Reverse();
+
+            objhString.RemoveAt(3); // remove index
+
+            objhString.Sort(); // sort element
+
+            objhString.AddRange(objhString); // add again all add values
+
+            objhString.Insert(1,"abc"); // insert a value 
+
+            int index = objhString.BinarySearch("EFGH");      // insert "EFGH" in the List
+            if (index < 1)                                    //"EFGH" insert into its original
+            {                                                 // position when the List is sorted
+                objhString.Insert(~index, "EFGH");
+            }
+
+            Console.WriteLine(objInt.Find(isEven)); //find even value
+
+            //objhString.Clear(); // clear all list 
+
+            foreach (string item1 in objhString)
+            {
+                Console.WriteLine(item1); // o/p :- 11  22 33 44 
+            }
+
+            //Console.WriteLine(objInt.Capacity); // o/p :- 4
+            //Console.WriteLine(objInt.Count);   // o/p :- 4
+
+            Console.ReadKey();
+
+        }
+
+        public class Employee
+        {
+            public string name // define property
+            {
+                get; 
+                set;
+            }
+
+            public int age // define property
+            {
+                get;
+                set;
+            }
+
+            public string designation // define property
+            {
+                get;
+                set;
+            }
+        }
+    }
+}
