@@ -7,3 +7,12 @@ C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\bin\Debug
 C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.csproj.CopyComplete
 C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.dll
 C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.pdb
+D:\NewGit\TrainTicketBooking\Console App\TrainBooking.DataAccess\bin\Debug\TrainBooking.DataAccess.dll
+D:\NewGit\TrainTicketBooking\Console App\TrainBooking.DataAccess\bin\Debug\TrainBooking.DataAccess.pdb
+D:\NewGit\TrainTicketBooking\Console App\TrainBooking.DataAccess\bin\Debug\TrainBooking.Model.dll
+D:\NewGit\TrainTicketBooking\Console App\TrainBooking.DataAccess\bin\Debug\TrainBooking.Model.pdb
+D:\NewGit\TrainTicketBooking\Console App\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.csproj.AssemblyReference.cache
+D:\NewGit\TrainTicketBooking\Console App\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.csproj.CoreCompileInputs.cache
+D:\NewGit\TrainTicketBooking\Console App\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.csproj.CopyComplete
+D:\NewGit\TrainTicketBooking\Console App\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.dll
+D:\NewGit\TrainTicketBooking\Console App\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.pdb
