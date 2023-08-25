@@ -1,0 +1,9 @@
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.csproj.AssemblyReference.cache
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\bin\Debug\TrainBooking.DataAccess.dll
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\bin\Debug\TrainBooking.DataAccess.pdb
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\bin\Debug\TrainBooking.Model.dll
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\bin\Debug\TrainBooking.Model.pdb
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.csproj.CopyComplete
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.dll
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.DataAccess\obj\Debug\TrainBooking.DataAccess.pdb

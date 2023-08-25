@@ -1,0 +1,6 @@
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.Model\bin\Debug\TrainBooking.Model.dll
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.Model\bin\Debug\TrainBooking.Model.pdb
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.Model\obj\Debug\TrainBooking.Model.csproj.CoreCompileInputs.cache
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.Model\obj\Debug\TrainBooking.Model.dll
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.Model\obj\Debug\TrainBooking.Model.pdb
+C:\Users\tithi.patel\source\repos\TrainBooking\TrainBooking.Model\obj\Debug\TrainBooking.Model.csproj.AssemblyReference.cache
