@@ -13,7 +13,7 @@ namespace TrainBooking.DataAccess
         public void InsertUserMapping()
         {
             SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
-            string Query = "Insert into UserMapping values(4,4,4,5,'No')";
+            string Query = "Insert into UserMapping values(4,4,4,5)";
             SqlCommand sqlCommand = new SqlCommand(Query, sqlConnection);
             sqlConnection.Open();
             int rowaffected = sqlCommand.ExecuteNonQuery();
