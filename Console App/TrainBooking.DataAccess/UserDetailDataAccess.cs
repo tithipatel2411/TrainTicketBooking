@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TrainBooking.DataAccess
 {
-    public class AdoNetExample
+    public class UserDetailDataAccess
     {
         public void InsertUserDetail()
         {
@@ -28,11 +28,11 @@ namespace TrainBooking.DataAccess
             string Query = "InsertUserDetail";
             SqlCommand sqlCommand = new SqlCommand(Query, sqlConnection);
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            sqlCommand.Parameters.Add("@UserId", SqlDbType.Int).Value = 3;
-            sqlCommand.Parameters.Add("@UserName", SqlDbType.VarChar).Value = "Dhriti";
-            sqlCommand.Parameters.Add("@Gender", SqlDbType.VarChar).Value = "Female";
+            sqlCommand.Parameters.Add("@UserId", SqlDbType.Int).Value = 4;
+            sqlCommand.Parameters.Add("@UserName", SqlDbType.VarChar).Value = "Aman";
+            sqlCommand.Parameters.Add("@Gender", SqlDbType.VarChar).Value = "Male";
             sqlCommand.Parameters.Add("@Age", SqlDbType.Int).Value = 20;
-            sqlCommand.Parameters.Add("@Wallet", SqlDbType.Int).Value = 2000;
+            sqlCommand.Parameters.Add("@Wallet", SqlDbType.Int).Value = 1000;
             sqlCommand.Parameters.Add("@OPType", SqlDbType.VarChar).Value = "I";
 
             sqlConnection.Open();
