@@ -13,7 +13,7 @@ namespace TrainBooking.DataAccess
         public void InsertBooking()
         {
             SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
-            string Query = "Insert into Booking values(4,4,4,1,150,getdate(),'No')";
+            string Query = "Insert into Booking values(1,1,1,1,150,getdate(),'1',1)";
             SqlCommand sqlCommand = new SqlCommand(Query, sqlConnection);
             sqlConnection.Open();
             int rowaffected = sqlCommand.ExecuteNonQuery();
