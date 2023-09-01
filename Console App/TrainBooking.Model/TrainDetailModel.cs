@@ -14,5 +14,6 @@ namespace TrainBooking.Model
         public int TrainSourceId { get; set; }
         public int TrainDestinationId { get; set; }
         public string Availibility { get; set; }
+        public int TotalSeat { get; set; }
     }
 }
