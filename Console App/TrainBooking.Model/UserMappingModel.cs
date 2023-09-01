@@ -12,7 +12,7 @@ namespace TrainBooking.Model
         public int UserId { get; set; }
         public int Source { get; set; }
         public int Destination { get; set; }
-        public string CancelBooking { get; set; }
+        public int NoOfSeat { get; set; }
 
     }
 }

@@ -14,5 +14,8 @@ namespace TrainBooking.Model
         public int PaymentId { get; set; }
         public int Amount { get; set; }
         public DateTime BookingDate { get; set; }
+        public int CancelBooking { get; set; }
+        public int TicketStatus { get; set; }
+        public int SeatNo { get; set; }
     }
 }

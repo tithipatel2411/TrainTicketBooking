@@ -9,5 +9,6 @@ namespace TrainBooking.Model
     class LocationMapModel
     {
         public string LocationName { get; set; }
+        public int TrainId { get; set; }
     }
 }
