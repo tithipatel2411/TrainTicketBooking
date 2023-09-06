@@ -11,6 +11,76 @@ namespace TrainBooking.DataAccess
 {
     public class UserDetailDataAccess
     {
+
+
+        public bool AuthenticateUser(string UserName, string Password, out string validationmessage)
+        {
+
+            SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+            string Query = "select count(*) from UserDetail where UserName=@UserName";
+            SqlCommand sqlCommand = new SqlCommand(Query, sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@UserName", UserName);
+            sqlCommand.Parameters.AddWithValue("@Password", Password);
+
+            sqlConnection.Open();
+            int rowaffected = (int)sqlCommand.ExecuteScalar();
+            sqlConnection.Close();
+            if (rowaffected == 0)
+            {
+                validationmessage = "UserName Does Not Exists";
+                return false;
+            }
+
+            string Query1 = "select count(*) from UserDetail where UserName=@UserName AND Password=@Password";
+            SqlCommand sqlCommand1 = new SqlCommand(Query1, sqlConnection);
+            sqlCommand1.Parameters.AddWithValue("@UserName", UserName);
+            sqlCommand1.Parameters.AddWithValue("@Password", Password);
+
+            sqlConnection.Open();
+            rowaffected = (int)sqlCommand1.ExecuteScalar();
+
+            sqlConnection.Close();
+            validationmessage = rowaffected == 0 ? "credentials not matched" : string.Empty;
+            return rowaffected > 0;
+
+
+
+            //SqlConnection sqlConnetion = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+
+            //string query = "select count(*) from UserDetail where UserName=@UserName";
+            //SqlCommand cmd = new SqlCommand(query, sqlConnetion);
+
+            //cmd.Parameters.AddWithValue("@UserName", UserName);
+            ////cmd.Parameters.AddWithValue("@Password", Password);
+            //sqlConnetion.Open();
+
+            //int row = (int)cmd.ExecuteScalar();
+
+            //sqlConnetion.Close();
+            //if (row == 0)
+            //{
+            //    validationmessage = "UserName Doesn't Exists";
+            //    return false;
+            //}
+
+            //string q = "select count(*) from UserDetail where UserName=@UserName and Password=@Password";
+
+            //cmd = new SqlCommand(q, sqlConnetion);
+
+            //cmd.Parameters.AddWithValue("@UserName", UserName);
+            //cmd.Parameters.AddWithValue("@Password", Password);
+            //sqlConnetion.Open();
+            //row = (int)cmd.ExecuteScalar();
+
+            //sqlConnetion.Close();
+            //validationmessage = row == 0 ? "Credentials Doesn't Matched" : string.Empty;
+            //return row > 0;
+
+
+        }
+
+
+
         public void InsertUserDetail()
         {
             SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
