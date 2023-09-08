@@ -31,7 +31,7 @@ namespace TrainTicketBooking
             if (exists)
             {
                 Session["UserName"] = UserName;
-                Response.Redirect("About.aspx");
+                Response.Redirect("DefaultGridView.aspx");
             }
             else
             {

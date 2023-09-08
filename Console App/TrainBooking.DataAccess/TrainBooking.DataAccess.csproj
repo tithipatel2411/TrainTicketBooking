@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookingDataAccess.cs" />
+    <Compile Include="ConnectionString.cs" />
     <Compile Include="LocationMapDataAccess.cs" />
     <Compile Include="PaymentDataAccess.cs" />
     <Compile Include="TrainDetailDataAccess.cs" />

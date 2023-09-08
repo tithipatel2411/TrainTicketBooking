@@ -15,19 +15,19 @@ namespace TrainBooking.DataAccess
 
         public bool AuthenticateUser(string UserName, string Password, out string validationmessage)
         {
-
-            SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+            SqlConnection sqlConnection = ConnectionString.GetConnection();
+            //SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
             string Query = "select count(*) from UserDetail where UserName=@UserName";
             SqlCommand sqlCommand = new SqlCommand(Query, sqlConnection);
             sqlCommand.Parameters.AddWithValue("@UserName", UserName);
             sqlCommand.Parameters.AddWithValue("@Password", Password);
 
-            sqlConnection.Open();
+           // sqlConnection.Open();
             int rowaffected = (int)sqlCommand.ExecuteScalar();
             sqlConnection.Close();
             if (rowaffected == 0)
             {
-                validationmessage = "UserName Does Not Exists";
+                validationmessage = "UserName or Password Does Not Exists";
                 return false;
             }
 
@@ -80,7 +80,20 @@ namespace TrainBooking.DataAccess
         }
 
 
+        public DataTable GetData()
+        {
+            SqlConnection sqlConnection = ConnectionString.GetConnection();
+            //SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+            string query = "select * from UserDetail";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query,sqlConnection);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            return dataTable;
 
+        }
+
+
+/*
         public void InsertUserDetail()
         {
             SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
@@ -196,5 +209,6 @@ namespace TrainBooking.DataAccess
             sqlConnection.Close();
 
         }
+*/
     }
 }
