@@ -32,7 +32,7 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Connection %>" SelectCommand="SELECT * FROM [UserDetail]"></asp:SqlDataSource>
         </div>
-        <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
+        <asp:Repeater ID="Repeater1" runat="server">
             <itemtemplate>
                 <div class="rptr">
                     <table>
