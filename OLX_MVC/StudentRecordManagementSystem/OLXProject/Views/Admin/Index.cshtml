@@ -1,0 +1,87 @@
+﻿@model IEnumerable<OLXProject.Models.ProductDetailsModel1>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productDetailsId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productSubCategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productImageId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cityId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updatedOn)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.productDetailsId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productSubCategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productImageId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cityId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updatedOn)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { productDetailsId = item.productDetailsId },new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details", new { productDetailsId = item.productDetailsId }) |
+            @Html.ActionLink("Delete", "Delete", new { productDetailsId = item.productDetailsId })
+        </td>
+    </tr>
+}
+
+</table>

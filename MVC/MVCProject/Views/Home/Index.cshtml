@@ -1,4 +1,8 @@
-﻿<table  class="table table-striped">
+﻿<h1>@TempData["Tempdata"]</h1>
+@{ 
+    TempData.Keep("Tempdata");
+}
+<table  class="table table-striped">
     <tr>
         <th>Id</th>
         <th>Name</th>
@@ -31,6 +35,6 @@
         <a href="~/Views/Home/SecondPage.cshtml"> Your View Data is <b>@ViewData["Viewdata"]</b></a>
     </li>
     <li class="list-group-item">
-        <a href="~/Views/Home/SecondPage.cshtml">Your View Bag is <b>@TempData["Tempdata"]</b></a>
+        <a href="~/Views/Home/SecondPage.cshtml">Your Temp Data is <b>@TempData["Tempdata"]</b></a>
 </li>
 </ul>

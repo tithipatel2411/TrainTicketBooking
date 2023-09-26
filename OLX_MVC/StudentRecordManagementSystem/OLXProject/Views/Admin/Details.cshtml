@@ -1,0 +1,98 @@
+﻿@model OLXProject.Models.ProductDetailsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductDetailsModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.productDetailsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productDetailsId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productSubCategoryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productSubCategoryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productImageId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productImageId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cityId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cityId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createdOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updatedOn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
