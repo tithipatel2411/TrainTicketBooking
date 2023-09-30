@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Olx_New_Project.Models.ProductSubCategoryModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productSubCategoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productCategoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productSubCategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updatedOn)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.productSubCategoryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productCategoryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productSubCategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updatedOn)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { productSubCategoryId = item.productSubCategoryId }) |
+            @Html.ActionLink("Details", "Details", new { productSubCategoryId = item.productSubCategoryId }) |
+            @Html.ActionLink("Delete", "Delete", new { productSubCategoryId = item.productSubCategoryId })
+        </td>
+    </tr>
+}
+
+</table>
