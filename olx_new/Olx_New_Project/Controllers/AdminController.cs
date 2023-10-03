@@ -10,46 +10,44 @@ namespace Olx_New_Project.Controllers
     public class AdminController : Controller
     {
 
-        ProductSubCatModelRepo productCatRepository = null;
+        DataAccess dataAccess = null;
         public AdminController()
         {
-            productCatRepository = new ProductSubCatModelRepo();
+            dataAccess = new DataAccess();
         }
 
-        // GET: Admin
-        public ActionResult Index()
+
+        public ActionResult Dashboard()
         {
-            IEnumerable<ProductSubCategoryModel> productDetails = productCatRepository.GetProductDetailsLists();
-            //if (productDetails.Count == 0)
-            //{
-            //    TempData["InfoMessage"] = "Currently Data Not Available in the Database ";
-            //}
-            return View(productDetails);
-            // return View();
+            return View("Dashboard", "Admin_Layout");
         }
 
-        // GET: Admin/Details/5
-        public ActionResult Details(int id)
+        public ActionResult SubCategoryList()
         {
-            return View();
+            IEnumerable<ProductSubCategoryModel> productDetails = dataAccess.GetProductDetailsLists();
+            
+            return View("SubCategoryList", "Admin_Layout", productDetails);
         }
 
-        // GET: Admin/Create
-        public ActionResult Create()
+        public ActionResult SubCategoryListDetails(int productSubCategoryId)
         {
-            return View();
+            ProductSubCategoryModel productDetails = dataAccess.GetProductDetails(productSubCategoryId);
+            return View("SubCategoryListDetails", "Admin_Layout", productDetails);
         }
 
-        // POST: Admin/Create
+        public ActionResult SubCategoryListCreate()
+        {
+            return View("SubCategoryListCreate", "Admin_Layout");
+        }
+
         [HttpPost]
-        public ActionResult Create(ProductSubCategoryModel productDetails)
+        public ActionResult SubCategoryListCreate(ProductSubCategoryModel productDetails)
         {
             try
             {
-                // TODO: Add insert logic here  
-                productCatRepository.AddProductDetails(productDetails);
+                dataAccess.AddProductDetails(productDetails);
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(SubCategoryList));
             }
             catch (Exception ex)
             {
@@ -57,23 +55,19 @@ namespace Olx_New_Project.Controllers
             }
         }
 
-        // GET: Admin/Edit/5
-        public ActionResult Edit(int productSubCategoryId)
+        public ActionResult SubCategoryListEdit(int productSubCategoryId)
         {
-            ProductSubCategoryModel productDetails = productCatRepository.GetProductDetails(productSubCategoryId);
-            return View(productDetails);
-            // return View();
+            ProductSubCategoryModel productDetails = dataAccess.GetProductDetails(productSubCategoryId);
+            return View("SubCategoryListEdit", "Admin_Layout", productDetails);
         }
 
-        // POST: Admin/Edit/5
         [HttpPost]
-        public ActionResult Edit(ProductSubCategoryModel productDetails)
+        public ActionResult SubCategoryListEdit(ProductSubCategoryModel productDetails)
         {
             try
             {
-                // TODO: Add update logic here  
-                productCatRepository.UpdateProductDetails(productDetails);
-                return RedirectToAction(nameof(Index));
+                dataAccess.UpdateProductDetails(productDetails);
+                return RedirectToAction(nameof(SubCategoryList));
             }
             catch
             {
@@ -81,23 +75,19 @@ namespace Olx_New_Project.Controllers
             }
         }
 
-        // GET: Admin/Delete/5
-        public ActionResult Delete(int productSubCategoryId)
+        public ActionResult SubCategoryListDelete(int productSubCategoryId)
         {
-            ProductSubCategoryModel productDetails = productCatRepository.GetProductDetails(productSubCategoryId);
-            return View(productDetails);
-            // return View();
+            ProductSubCategoryModel productDetails = dataAccess.GetProductDetails(productSubCategoryId);
+            return View("SubCategoryListDelete", "Admin_Layout", productDetails);
         }
 
-        // POST: Admin/Delete/5
         [HttpPost]
-        public ActionResult Delete(ProductSubCategoryModel productDetails)
+        public ActionResult SubCategoryListDelete(ProductSubCategoryModel productDetails)
         {
             try
             {
-                // TODO: Add delete logic here  
-                productCatRepository.DeleteProductDetails(productDetails.@productSubCategoryId);
-                return RedirectToAction(nameof(Index));
+                dataAccess.DeleteProductDetails(productDetails.@productSubCategoryId);
+                return RedirectToAction(nameof(SubCategoryList));
             }
             catch
             {

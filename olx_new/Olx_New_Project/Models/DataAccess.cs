@@ -8,9 +8,10 @@ using System.Web;
 
 namespace Olx_New_Project.Models
 {
-    public class ProductSubCatModelRepo
+    public class DataAccess
     {
         private SqlConnection con;
+
         //To Handle connection related activities    
         private void connection()
         {
@@ -58,8 +59,8 @@ namespace Olx_New_Project.Models
 
             cmd.Parameters.AddWithValue("@productCategoryId", productDetails.productCategoryId);
             cmd.Parameters.AddWithValue("@productSubCategoryName", productDetails.productSubCategoryName);
-            cmd.Parameters.AddWithValue("@createdOn","getdate()");
-            cmd.Parameters.AddWithValue("@updatedOn", "getdate()");
+            //cmd.Parameters.AddWithValue("@createdOn","getdate()");
+            //cmd.Parameters.AddWithValue("@updatedOn", "getdate()");
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -104,13 +105,13 @@ namespace Olx_New_Project.Models
             return ul;
         }
 
-        public void DeleteProductDetails(int? @productSubCategoryId)
+        public void DeleteProductDetails(int? productSubCategoryId)
         {
             connection();
 
             SqlCommand cmd = new SqlCommand("SpDeleteProductDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@productDetailsId", @productSubCategoryId);
+            cmd.Parameters.AddWithValue("@productSubCategoryId", productSubCategoryId);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
