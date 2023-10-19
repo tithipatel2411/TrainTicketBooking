@@ -45,6 +45,7 @@ namespace Olx_New_Project.Controllers
         {
             try
             {
+                TempData["AlertMessage"] = "Product Added Successfully......";
                 dataAccess.AddProductDetails(productDetails);
 
                 return RedirectToAction(nameof(SubCategoryList));
@@ -66,6 +67,7 @@ namespace Olx_New_Project.Controllers
         {
             try
             {
+                TempData["AlertMessage"] = "Product Updated Successfully......";
                 dataAccess.UpdateProductDetails(productDetails);
                 return RedirectToAction(nameof(SubCategoryList));
             }
@@ -86,6 +88,7 @@ namespace Olx_New_Project.Controllers
         {
             try
             {
+                TempData["AlertMessage"] = "Product Deleted Successfully......";
                 dataAccess.DeleteProductDetails(productDetails.@productSubCategoryId);
                 return RedirectToAction(nameof(SubCategoryList));
             }

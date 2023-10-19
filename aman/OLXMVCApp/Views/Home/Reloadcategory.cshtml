@@ -1,0 +1,64 @@
+﻿@model IEnumerable<OLX.Models.User.UserBuyModel>
+
+@{
+    Layout = null;
+}
+<style>
+    .second-header {
+        width: 100%;
+        height: 40px;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        background-color: #f3f3f3;
+        /* border:2px solid red; */
+    }
+
+    .dropdown-menu.show {
+        background-color: #f3f3f3;
+        WIDTH: max-content;
+        position: absolute;
+    }
+
+    .second-header a {
+        color: #2866c3;
+    }
+
+    .CATEGORY{
+        height:500px;
+    }
+
+    
+</style>
+
+
+<div class="CATEGORY">
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            SELECT CATEGORY
+        </button>
+        <ul class="dropdown-menu" style="color: black">
+            @{
+                // Group the ModelProductSubCategory objects by productCategoryName
+                var groupedCategories = Model.GroupBy(item => item.productCategoryName);
+            }
+
+            @foreach (var group in groupedCategories)
+            {
+                <a href="@Url.Action("filterproduct", "Home", new { categoryId = group.First().productCategoryId })">
+                    <h2>@group.Key</h2>
+                </a>
+                <ul>
+                    @foreach (var subcategory in group)
+                    {
+                        <li>
+                            <a href="@Url.Action("filterproduct", "Home", new { subcategoryId = subcategory.productSubCategoryId })">
+                                @subcategory.productSubCategoryName
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+        </ul>
+    </div>
+</div>

@@ -3,6 +3,29 @@
 @{
     ViewBag.Title = "SubCategoryList";
 }
+
+</br>
+</br>
+
+
+@if (TempData["InfoMessage"] != null)
+{
+    <div class="alert alert-info">
+         @TempData["InfoMessage"]
+    </div>
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success ! </strong> @TempData["AlertMessage"]
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+
+    </div>
+}
+
 <style>
     .scroll-container {
         overflow: auto;
@@ -11,7 +34,6 @@
     }
 </style>
 
-<br />
 <br />
 <br />
 <div class="scroll-container">
@@ -72,28 +94,28 @@
 </div>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script>
-        $(document).ready(function () {
+    $(document).ready(function () {
 
-            function Contains(text_one, text_two) {
-                if (text_one.indexOf(text_two) != -1)
-                    return true;
-            }
-            $("#Search").keyup(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
 
-                var searchText = $("#Search").val().toLowerCase();
-                $(".Search").each(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
 
-                    if (!Contains($(this).text().toLowerCase(), searchText)) {
-                        $(this).hide();
-                    }
-                    else {
-                        $(this).show();
-                    }
-
-                });
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
 
             });
 
         });
+
+    });
 
 </script>

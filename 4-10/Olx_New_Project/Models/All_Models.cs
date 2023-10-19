@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Olx_New_Project.Models
 {
@@ -25,7 +26,7 @@ namespace Olx_New_Project.Models
     public class ProductSubCategoryModeljoin
     {
         public int productSubCategoryId { get; set; }
-        public string productCategoryName { get; set; }
+        public List<SelectListItem> productCategoryName { get; set; }
         public string productSubCategoryName { get; set; }
         public DateTime createdOn { get; set; }
         public DateTime updatedOn { get; set; }

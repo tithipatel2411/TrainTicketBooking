@@ -1,0 +1,104 @@
+﻿@model OLX.Models.Admin.ProductSubCategoryModeljoin
+@using System.Web.Configuration
+
+@{
+    ViewBag.Title = "Add Product Subcategory";
+    //Layout = null;
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Product Subcategory</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-border {
+            border: 2px solid #282828;
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .form-horizontal {
+            margin-top: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+        }
+
+        .field-label {
+            font-weight: bold;
+        }
+
+        .create-button {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            .create-button:hover {
+                background-color: #218838;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-border">
+            <h2 style="text-align:center; margin-bottom:10px">Add Product Subcategory</h2>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @*<label class="field-label">@Html.LabelFor(model => model.productCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })</label>*@
+                        <label class="field-label">Product Category Name</label>
+                        <div class="col-md-10">
+                            @*@Html.DropDownListFor(model => model.productCategoryId, (SelectList)ViewBag.ProductCategoryIds, "Select a Product Category", new { @class = "form-control" })*@
+                            @Html.DropDownListFor(model => model.productCategoryId, ViewBag.ProductCategoryIds as IEnumerable<SelectListItem>, "Select a Product Category", new { @class = "form-control" })
+
+                            @Html.ValidationMessageFor(model => model.productCategoryId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @*<label class="field-label">@Html.LabelFor(model => model.productSubCategoryName, htmlAttributes: new { @class = "control-label col-md-2" })</label>*@
+                        <label class="field-label">Product SubCategory Name</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.productSubCategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.productSubCategoryName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="create-button" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <div>
+                @Html.ActionLink("Back to List", "SubCategoryList")
+            </div>
+        </div>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

@@ -1,0 +1,177 @@
+﻿@model IEnumerable<OLX.Models.Admin.ProductListModel>
+
+
+<style>
+    th {
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
+    
+</style>
+<style>
+
+    .scroll-container {
+        overflow: auto;
+        max-height: 700px;
+
+    }
+
+</style>
+<div class="scroll-container">
+    <div class="container">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input type="text" id="SearchItem" placeholder="Search" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    @if (TempData["AlertMessage"] != null)
+    {
+        <div class="alert alert-success">
+            <strong> Success!!!!!</strong>  @TempData["AlertMessage"]
+        </div>
+    }
+
+    <table class="table table-striped table-bordered" style="width:auto">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.firstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productSubCategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.advertiseTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.advertiseDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.advertisePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.areaName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.advertiseStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.advertiseapproved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.updatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.imageData)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr class="SearchItem">
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productSubCategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.advertiseTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.advertiseDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.advertisePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.areaName)
+        </td>
+        <td>
+            @*@Html.CheckBoxFor(modelItem => item.advertiseStatus, new { id = "myCheckbox", style = "transform: scale(2);" })*@
+            @if (!item.advertiseStatus)
+            {
+                <span>Pending</span>
+            }
+            else
+            {
+               <span>Approved</span>
+            }
+        </td>
+        <td>
+            @*@Html.CheckBoxFor(modelItem => item.advertiseapproved, new { id = "myCheckbox1", @style = "transform: scale(2);" })*@
+            @if (!item.advertiseapproved)
+            {
+                <span>Pending</span>
+            }
+            else
+            {
+                <span>Approved</span>
+            }
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.createdOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updatedOn)
+        </td>
+        <td>
+            @if (item.imageData != null && item.imageData.Length > 0)
+            {
+                var base64Image = Convert.ToBase64String(item.imageData);
+                <img src="data:image/png;base64, @base64Image" alt="Image" style="height:100px; width:100px " />
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "ProductListEdit", new { advertiseId = item.advertiseId })
+            @Html.ActionLink("Details", "ProductListDetails", new { advertiseId = item.advertiseId })
+            @Html.ActionLink("Delete", "ProductListDelete", new { advertiseId = item.advertiseId })
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#SearchItem").keyup(function () {
+
+            var searchText = $("#SearchItem").val().toLowerCase();
+            $(".SearchItem").each(function () {
+
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+
+            });
+
+        });
+
+    });
+</script>
+
+
+
+
+

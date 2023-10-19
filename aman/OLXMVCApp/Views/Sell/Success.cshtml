@@ -1,0 +1,14 @@
+﻿
+@model IEnumerable<OLX.Models.MyAdvertiseModel>
+@{
+    ViewBag.Title = "Success";
+}
+
+<h2>Success</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+{
+    <p class="alert alert-success">@ViewBag.SuccessMessage</p>
+}
+
+
